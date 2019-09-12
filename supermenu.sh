@@ -13,7 +13,7 @@
 #------------------------------------------------------
 # TODO: Completar con su path
 #------------------------------------------------------
-proyectoActual=https://github.com/Samiserf/SuperMenu.git
+proyectoActual="https://github.com/MATIASHD/SuperMenu"
 
 #------------------------------------------------------
 # DISPLAY MENU
@@ -32,7 +32,17 @@ imprimir_menu () {
     echo -e "\t\t\t c.  Actualizar repo";
     echo -e "\t\t\t f.  Abrir en terminal";        
     echo -e "\t\t\t g.  Abrir en carpeta"; 
-    
+
+	
+    echo -e "\t\t\t h.  Generar 100 carpetas";
+    echo -e "\t\t\t i.  ELiminar las 100 carpetas creadas";
+
+    echo -e "\t\t\t j. Redireccionamiento LIsta archivos (override)";
+    echo -e "\t\t\t k. Redireccionamiento LIsta archivos con permisos (append)";
+
+    echo -e "\t\t\t l. Realizar un greep de 6 del file generado en el item j";
+    echo -e "\t\t\t m. Realizar un grep de 90 parametrizando con pipes el file generado en el item k";
+
     echo -e "\t\t\t q.  Salir";
     echo "";
     echo -e "Escriba la opción y presione ENTER";
@@ -123,6 +133,50 @@ g_funcion () {
 # TODO: Completar con el resto de ejercicios del TP, una funcion por cada item
 #------------------------------------------------------
 
+h_funcion () {
+	imprimir_encabezado "\tOpción h.  Crear 100 carpetas";        
+	for value in {0..99}
+        do
+	     mkdir $value;
+             chmod u+rw,g+r,o+000 $value;
+	done
+}
+
+#BORRAR CARPETAS
+i_funcion () {
+	imprimir_encabezado "\tOpción i.  Eliminar las 100 carpetas creadas";        
+	for value in {0..99}
+        do
+	     rm -r $value;
+	done
+}
+
+#FUncion de redireccionamiento >
+j_funcion () {
+	imprimir_encabezado "\tOpción j.  GEnerar redireccionamiento (lista archivos del path actual)";        
+	ls -t > ~/supermenu/ListaArchivos.txt
+}
+
+#FUncion de redireccionamiento >
+k_funcion () {
+	imprimir_encabezado "\tOpción k.  GEnerar redireccionamiento (lista archivos con detalle de permisos)";        
+	ls -la >> ~/supermenu/ListaArchivosConcatenandoInfo.txt
+}
+
+#FUncion greep 
+l_funcion () {
+	imprimir_encabezado "\tOpción l.  BUscar el parametro ingresado";        
+	grep < ~/supermenu/ListaArchivos.txt "6" > ~/supermenu/grep.txt
+}
+
+
+#FUncion pipe 
+m_funcion () {
+	imprimir_encabezado "\tOpción m.  REalizar una busqueda del file generado en el item k";        
+	cat ListaArchivosConcatenandoInfo.txt | grep "90" > ~/supermenu/pipes.txt
+}
+
+
 
 
 #------------------------------------------------------
@@ -143,8 +197,15 @@ do
         e|E) e_funcion;;
         f|F) f_funcion;;
         g|G) g_funcion;;
+        h|H) h_funcion;;
+        i|I) i_funcion;;
+        j|J) j_funcion;;
+        k|K) k_funcion;;
+        l|L) l_funcion;;
+        m|M) m_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac
     esperar;
 done
+ 
