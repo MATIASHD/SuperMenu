@@ -13,7 +13,7 @@
 #------------------------------------------------------
 # TODO: Completar con su path
 #------------------------------------------------------
-proyectoActual="path de mi proyecto gitlab"
+proyectoActual=https://github.com/Samiserf/SuperMenu.git
 
 #------------------------------------------------------
 # DISPLAY MENU
