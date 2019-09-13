@@ -34,8 +34,8 @@ imprimir_menu () {
     echo -e "\t\t\t g.  Abrir en carpeta"; 
 
 	
-    echo -e "\t\t\t h.  Generar 100 carpetas";
-    echo -e "\t\t\t i.  ELiminar las 100 carpetas creadas";
+    echo -e "\t\t\t h.  Generar 100 carpetas ";
+    echo -e "\t\t\t i.  ELiminar las 100 carpetas creadas ";
 
     echo -e "\t\t\t j. Redireccionamiento LIsta archivos (override)";
     echo -e "\t\t\t k. Redireccionamiento LIsta archivos con permisos (append)";
