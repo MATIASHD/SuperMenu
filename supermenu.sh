@@ -43,7 +43,11 @@ imprimir_menu () {
     echo -e "\t\t\t l. Realizar un greep de 6 del file generado en el item j";
     echo -e "\t\t\t m. Realizar un grep de 90 parametrizando con pipes el file generado en el item k";
 
-    echo -e "\t\t\t q.  Salir";
+
+    echo -e "\t\t\t n. Medir el tiempo de la descarga de una iso realizada con axel ";
+
+    echo -e "\t\t\t O. Medir el tiempo de la descarga de una iso realizada con wget ";
+
     echo "";
     echo -e "Escriba la opción y presione ENTER";
 }
@@ -90,7 +94,7 @@ decidir () {
 }
 
 #------------------------------------------------------
-# FUNCTIONES del MENU
+		# FUNCTIONES del MENU
 #------------------------------------------------------
 a_funcion () {
     	imprimir_encabezado "\tOpción a.  Ver estado del proyecto";
@@ -170,12 +174,26 @@ l_funcion () {
 }
 
 
-#FUncion pipe 
+#FUncion pipe
+ 
 m_funcion () {
 	imprimir_encabezado "\tOpción m.  REalizar una busqueda del file generado en el item k";        
 	cat ListaArchivosConcatenandoInfo.txt | grep "90" > ~/supermenu/pipes.txt
 }
 
+ 
+n_funcion () {
+	imprimir_encabezado "\tOpción n.  Mide el tiempo de la descarga de una iso usando axel";        
+	time axel http://cdimage.debian.org/cdimage/unofficial/non-free/images-including-firmware/10.1.0+nonfree/amd64/iso-bd/firmware-edu-10.1.0-amd64-BD-1.iso
+
+}
+
+ 
+o_funcion () {
+	imprimir_encabezado "\tOpción O. Mide el tiempo de la descarga de una iso realizada con wget ";        
+	time wget http://cdimage.debian.org/cdimage/unofficial/non-free/images-including-firmware/10.1.0+nonfree/amd64/iso-bd/firmware-edu-10.1.0-amd64-BD-1.iso
+
+}
 
 
 
@@ -203,9 +221,11 @@ do
         k|K) k_funcion;;
         l|L) l_funcion;;
         m|M) m_funcion;;
+        n|N) n_funcion;;
+        o|O) o_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac
     esperar;
 done
- 
+
