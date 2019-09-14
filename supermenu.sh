@@ -40,7 +40,7 @@ imprimir_menu () {
     echo -e "\t\t\t j. Redireccionamiento LIsta archivos (override)";
     echo -e "\t\t\t k. Redireccionamiento LIsta archivos con permisos (append)";
 
-    echo -e "\t\t\t l. Realizar un greep de 6 del file generado en el item j";
+    echo -e "\t\t\t l. Realizar un grep de 6 del file generado en el item j";
     echo -e "\t\t\t m. Realizar un grep de 90 parametrizando con pipes el file generado en el item k";
 
 
@@ -167,7 +167,7 @@ k_funcion () {
 	ls -la >> ~/supermenu/ListaArchivosConcatenandoInfo.txt
 }
 
-#FUncion greep 
+#FUncion grep 
 l_funcion () {
 	imprimir_encabezado "\tOpción l.  BUscar el parametro ingresado";        
 	grep < ~/supermenu/ListaArchivos.txt "6" > ~/supermenu/grep.txt
