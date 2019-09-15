@@ -4,67 +4,71 @@
 #include <pthread.h>
 #include <unistd.h>
 
-sem_t semFiiiiigaro;
-sem_t semFigaro;
-sem_t semFigaro1;
-sem_t semFigaro2;
-sem_t semFigaroFi;
-sem_t semFigaroFa;
-
+sem_t semFiiiiigaro, semFigaro, semFigaro1, semFigaro2, semFigaroFi, semFigaroFa;
 int cantidad;
 
 void *imprimirFiiiiigaro (){
+
     for (int i = 0; i < cantidad; i++)
     {
         sem_wait(&semFiiiiigaro);
         printf("Fiiiiigaro \n");
         sem_post(&semFigaro);
     }
+
     pthread_exit(NULL);
 }
 
 void *imprimirFigaro () {
+
     for (int i = 0; i < cantidad; i++)
     {
         sem_wait(&semFigaro);
         printf("Figaro ");
         sem_post(&semFigaro1);
     }
+
     pthread_exit(NULL);
 }
 
-/////////////////////////////
 void *imprimirFigaro1 () {
+
     for (int i = 0; i < cantidad; i++)
     {
         sem_wait(&semFigaro1);
         printf("Figaro ");
         sem_post(&semFigaro2);
     }
+
     pthread_exit(NULL);
 }
 
 void *imprimirFigaro2 () {
+
     for (int i = 0; i < cantidad; i++)
     {
         sem_wait(&semFigaro2);
         printf("Figaro \n");
         sem_post(&semFigaroFi);
     }
+
     pthread_exit(NULL);
 }
-/////////////////////////////
 
 void *imprimirFigaroFi() {
+
     for (int i = 0; i < cantidad; i++)
     {
         sem_wait(&semFigaroFi);
         printf("Figaro Fi \n");
         sem_post(&semFigaroFa);
     }
+
+    pthread_exit(NULL);
 }
 
 void *imprimirFigaroFa(){
+
     for (int i = 0; i < cantidad; i++)
     {
         sem_wait(&semFigaroFa);
@@ -72,8 +76,8 @@ void *imprimirFigaroFa(){
         sem_post(&semFiiiiigaro);
         sleep(1);
     }
+
     pthread_exit(NULL);
-    
 }
 
 void *Sem(){
@@ -101,7 +105,6 @@ void *hilos(){
     pthread_join(hiloFigaro2, NULL);
     pthread_join(hiloFigaroFi, NULL);
     pthread_join(hiloFigaroFa, NULL);
-
 }
 
 void *destruirSem() {
@@ -119,9 +122,7 @@ int main () {
 
     Sem();
     hilos();
-
     pthread_exit(NULL);
-
     destruirSem();
 
     return 0;

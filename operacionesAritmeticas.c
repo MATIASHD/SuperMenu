@@ -1,12 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h> 
-
+#include <stdlib.h>
+#include <unistd.h>
 
 int main() { 
 
-	int opcion;
-	int op1, op2;
-	int resultado;
+	int opcion, op1, op2, resultado;
 
 	printf ("\n Introduzca la operacion que desea realizar");
 	printf ("\n 1 - Suma");
@@ -19,15 +17,18 @@ int main() {
 	scanf("%d", &opcion);
 	
 	if (opcion == 1){
+
 		printf ("\n Introdusca el primer valor \n");
 		scanf ("%d", &op1);
 		printf ("\n Introdusca el segundo valor \n");
 		scanf ("%d", &op2);
 		
+		
 		resultado = op1 + op2;
+		
 		printf ("\n La suma de %d y %d es: %d", op1, op2, resultado);
 
-	}else if (opcion == 2){
+	} else if (opcion == 2){
 
 		printf ("\n Introdusca el primer valor \n");
 		scanf ("%d", &op1);
@@ -37,7 +38,7 @@ int main() {
 		resultado = op1 - op2;
 		printf ("\n La resta de %d y %d es: %d", op1, op2, resultado);
 
-	}else if (opcion == 3){
+	} else if (opcion == 3){
 
 		printf ("\n Introdusca el primer valor \n");
 		scanf ("%d", &op1);
@@ -56,12 +57,13 @@ int main() {
 		
 		if (op2 == 0){
 			printf ("\n El divisor no puede ser 0");
-		}else{
+		} else{
 			resultado = op1 / op2;
 			printf ("\n La division de %d y %d es: %d", op1, op2, resultado);
 		}
 	}
 
 	printf ("\n");
+	sleep(5);
 	return 0; 
 }
