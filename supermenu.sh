@@ -43,10 +43,10 @@ imprimir_menu () {
     echo -e "\t\t\t l. Realizar un grep de 6 del file generado en el item j";
     echo -e "\t\t\t m. Realizar un grep de 90 parametrizando con pipes el file generado en el item k";
 
-
     echo -e "\t\t\t n. Medir el tiempo de la descarga de una iso realizada con axel ";
-
     echo -e "\t\t\t O. Medir el tiempo de la descarga de una iso realizada con wget ";
+
+    echo -e "\t\t\t p. Ejecutar programa Figaro";
 
     echo "";
     echo -e "Escriba la opción y presione ENTER";
@@ -195,6 +195,12 @@ o_funcion () {
 
 }
 
+#programa Figaro
+p_funcion () {
+	imprimir_encabezado "\tOpción P. Ejecutar el programa Figaro ";
+	gcc figaro.c -o figaro -lpthread
+	./figaro
+}
 
 
 #------------------------------------------------------
@@ -223,6 +229,7 @@ do
         m|M) m_funcion;;
         n|N) n_funcion;;
         o|O) o_funcion;;
+	p|P) p_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac
