@@ -48,7 +48,7 @@ int main() {
 		resultado = op1 * op2;
 		printf ("\n El producto de %d y %d es: %d", op1, op2, resultado);
 
-	}else if (opcion == 4){
+	} else if (opcion == 4){
 		
 		printf ("\n Introdusca el primer valor \n");
 		scanf ("%d", &op1);
@@ -64,6 +64,5 @@ int main() {
 	}
 
 	printf ("\n");
-	sleep(5);
 	return 0; 
 }
